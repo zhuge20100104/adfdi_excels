@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ############# Query and Compare operation Template ############### -->
+<QueryAndCompare>
+	<!-- ############# List all the information for each Query and Compare operation ############### -->
+	<Query>
+		<!-- sql statement, please use question mark ? to represent the columns which contains timestamp.
+			 For example, the column INVOICE_NUM contains timestamp, then we will replace the ? by INVOICE_NUM like '%_2015_09_25_02_13_05%'
+			_2015_09_25_02_13_05 is a concrete timestamp here, and you don't need to care about the value because the createTimestamp() method will automatically genetate it.
+		-->
+		<sql>SELECT * FROM AP_INVOICES_INTERFACE WHERE ? </sql>
+		<!-- Column names that contains timestamp. You can use comma, to split them if you have more than one column that contains timestamp, 
+			 then we will replace ? in the sql, and the sql may looks like below:
+			 SELECT * FROM AP_INVOICES_INTERFACE WHERE COLUMN1 like like '%_2015_09_25_02_13_05%' AND COLUMN2 like '%_2015_09_25_02_13_05%'
+		-->
+		<timestampColumns>INVOICE_NUM</timestampColumns>
+		<!-- Columns that need to be ignored in the compare operation, please use comma, to split them -->
+		<ignoredColumns>
+		INVOICE_ID,
+		INVOICE_NUM,
+		LAST_UPDATE_DATE,
+		LAST_UPDATED_BY,
+		LAST_UPDATE_LOGIN,
+		CREATION_DATE,
+		CREATED_BY,
+		GROUP_ID,
+		LOAD_REQUEST_ID,
+		CREDIT_CARD_TRX_ID,
+		PO_HEADER_ID,
+		PO_LINE_ID,
+		PO_DISTRIBUTION_ID,
+		INVENTORY_ITEM_ID,
+		ORG_ID,
+		DISTRIBUTION_SET_ID,
+		DIST_CODE_COMBINATION_ID,
+		AWT_GROUP_ID,
+		PJC_PROJECT_ID,
+		INCOME_TAX_REGION,
+		RCV_TRANSACTION_ID,
+		TAX_CODE_ID,
+		</ignoredColumns>
+		<!-- prefix of output file name, 'e.g., invoice, then we will create a file named invoice_2015_09_25_02_13_05.csv -->
+		<outputFilePrefix>invoice</outputFilePrefix> 
+		<!-- 'e.g., true (or) false 
+			 true: save the temporary file
+			 false: won't save the temporary file
+		-->
+		<saveTemporaryFile>true</saveTemporaryFile>  
+	</Query>
+	<Query>
+		<sql>select LINE.* from FUSION.AP_INVOICE_LINES_INTERFACE LINE, AP_INVOICES_INTERFACE INVOICE 
+				where LINE.INVOICE_ID = INVOICE.INVOICE_ID 
+				AND LINE.LOAD_REQUEST_ID = INVOICE.LOAD_REQUEST_ID 
+				AND ?
+		</sql>
+		<timestampColumns>INVOICE.INVOICE_NUM</timestampColumns>
+		<ignoredColumns>
+		INVOICE_ID,
+		INVOICE_LINE_ID,
+		LAST_UPDATED_BY,
+		LAST_UPDATE_DATE,
+		LAST_UPDATE_LOGIN,
+		CREATED_BY,
+		CREATION_DATE,
+		LOAD_REQUEST_ID,
+		REQUEST_ID,
+		ACCTS_PAY_CODE_COMBINATION_ID,
+		VENDOR_ID,
+		EXCHANGE_RATE_TYPE,
+		TERMS_ID,
+		AWT_GROUP_ID,
+		PJC_PROJECT_NUMBER,
+		</ignoredColumns> 
+		<outputFilePrefix>line</outputFilePrefix> 
+		<saveTemporaryFile>true</saveTemporaryFile> 
+	</Query>
+</QueryAndCompare>

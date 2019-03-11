@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Environment>
+
+<!-- #############Environment Information Template############### -->
+<!-- ############################################################ -->
+'Environment Information  : REL9_FIN_DIT
+<!-- ############################################################ -->
+'Source of Information    : http://efops.us.oracle.com:7779/feip
+<!-- ############################################################ -->
+'Last Modified by(UID)    : jnham
+<!-- ############################################################ -->
+'Date Modified (Server Date)  : 02-Mar-2013
+<!-- ############################################################ -->
+'Time Modified (Server Time)  : 01:05 AM PST
+<!-- ############################################################ -->
+
+<!-- ###########################Sync Variable Declaration########################### -->
+
+'FIN/WAIT_SYNC VARIABLE
+<Variable>
+              <Name>WAIT_SYNC</Name>  
+              <Value>10</Value>
+</Variable>
+
+'FIN/ADF_SYNC VARIABLE
+<Variable>
+              <Name>ADF_SYNC</Name>  
+              <Value>180000</Value>
+</Variable>
+
+<!-- ########################Way Of Login Information############################### -->
+
+'FIN/Login_type VARIABLE
+<Variable>
+              <Name>Login_type</Name>  
+              <Value>DIRECT</Value> <!-- 'e.g., DIRECT (or) INDEX (or) ATK -->
+</Variable>
+
+'FIN/Browsing_type VARIABLE
+<Variable>
+              <Name>Browsing_type</Name>  
+              <Value>INPRIVATE</Value> <!-- 'e.g., NORMAL (or) INPRIVATE (or) SESSION -->
+</Variable>
+
+'FIN/Login_page VARIABLE
+<Variable>
+              <Name>Login_page</Name>  
+              <Value>SSO_ON</Value> <!-- 'e.g., SSO_ON (or) SSO_OFF -->
+</Variable>
+
+'FIN/Multi_Tenant_Enabled VARIABLE
+<Variable>
+              <Name>Multi_Tenant_Enabled</Name>  
+              <Value>%MT_ENABLE%</Value> <!-- 'e.g., TRUE (or) FALSE -->
+</Variable>
+
+'FIN/Tenant_Name VARIABLE
+<Variable>
+              <Name>Tenant_Name</Name>  
+              <Value>%MT_TENANT_NAME%</Value> <!-- 'e.g., fsmcloud, vision etc. -->
+</Variable>
+
+<!-- ######################Server Information - For Functional Setup####################### -->
+
+'FIN/FS_Networking_Protocol VARIABLE
+<Variable>
+              <Name>FS_Networking_Protocol</Name>  
+              <Value>NON-SSL</Value> <!--'e.g.,NON-SSL(HTTP) and SSL(HTTPS) [SSL-SECURE SOCKETS LAYER]-->
+</Variable>
+
+'FIN/FS_Host_Name VARIABLE
+<Variable>
+              <Name>FS_Host_Name</Name>  
+              <Value>%WEBTIER_FS_HOST%</Value>
+</Variable>
+
+'FIN/FS_Port_Number VARIABLE
+<Variable>
+              <Name>FS_Port_Number</Name>  
+              <Value>%WEBTIER_FS_PORT%</Value>
+</Variable>
+
+<!-- ##########################Server Information - For Financials############################ -->
+
+'FIN/FIN_Networking_Protocol VARIABLE
+<Variable>
+              <Name>FIN_Networking_Protocol</Name>  
+              <Value>NON-SSL</Value> <!-- 'e.g.,NON-SSL(HTTP) and SSL(HTTPS) [SSL-SECURE SOCKETS LAYER] -->
+</Variable>
+
+'FIN/FIN_Host_Name VARIABLE
+<Variable>
+              <Name>FIN_Host_Name</Name>  
+              <Value>%WEBTIER_FIN_HOST%</Value>
+</Variable>
+
+'FIN/FIN_Port_Number VARIABLE
+<Variable>
+              <Name>FIN_Port_Number</Name>  
+              <Value>%WEBTIER_FIN_PORT%</Value>
+</Variable>
+
+<!-- ##########################Server Information - For Procurement############################ -->
+
+'FIN/PROC_Networking_Protocol VARIABLE
+<Variable>
+              <Name>PROC_Networking_Protocol</Name>  
+              <Value>SSL</Value> <!-- 'e.g.,NON-SSL(HTTP) and SSL(HTTPS) [SSL-SECURE SOCKETS LAYER] -->
+</Variable>
+
+'FIN/PROC_Host_Name VARIABLE
+<Variable>
+              <Name>PROC_Host_Name</Name>  
+              <Value>%WEBTIER_PRC_HOST%</Value>
+</Variable>
+
+'FIN/PROC_Port_Number VARIABLE
+<Variable>
+              <Name>PROC_Port_Number</Name>  
+              <Value>%WEBTIER_PRC_PORT%</Value>
+</Variable>
+
+<!-- ######################Server Information - For Supplier Chain Management######################## -->
+
+'FIN/SCM_Networking_Protocol VARIABLE
+<Variable>
+              <Name>SCM_Networking_Protocol</Name>  
+              <Value>SSL</Value> <!-- 'e.g.,NON-SSL(HTTP) and SSL(HTTPS) [SSL-SECURE SOCKETS LAYER] -->
+</Variable>
+
+'FIN/SCM_Host_Name VARIABLE
+<Variable>
+              <Name>SCM_Host_Name</Name>  
+              <Value>%WEBTIER_SCM_HOST%</Value>
+</Variable>
+
+'FIN/SCM_Port_Number VARIABLE
+<Variable>
+              <Name>SCM_Port_Number</Name>  
+              <Value>%WEBTIER_SCM_PORT%</Value>
+</Variable>
+
+<!-- ######################Server Information - For Human Capital Management######################## -->
+
+'FIN/HCM_Networking_Protocol VARIABLE
+<Variable>
+              <Name>HCM_Networking_Protocol</Name>  
+              <Value>SSL</Value> <!-- 'e.g.,NON-SSL(HTTP) and SSL(HTTPS) [SSL-SECURE SOCKETS LAYER] -->
+</Variable>
+
+'FIN/HCM_Host_Name VARIABLE
+<Variable>
+              <Name>HCM_Host_Name</Name>  
+              <Value>%WEBTIER_HCM_HOST%</Value>
+</Variable>
+
+'FIN/HCM_Port_Number VARIABLE
+<Variable>
+              <Name>HCM_Port_Number</Name>
+              <Value>%WEBTIER_HCM_PORT%</Value>
+</Variable>
+
+<!-- #################Product Family - Functional Setup - URL's Information############## -->
+
+'ATK Home Page
+<Variable>
+    <Name>atk_url</Name>
+    <!--<Value>https://fuscdrmovm53-fin-ext.us.oracle.com/</Value>-->
+	<Value>https://fuscdrmsmc370-fa-ext.us.oracle.com/homePage/faces/AtkHomePageWelcome</Value>
+</Variable>
+<Variable>
+    <Name>fin_homepage_url</Name>
+    <!--<Value>https://fuscdrmovm53-fin-ext.us.oracle.com/</Value>-->
+	<Value>https://fuscdrmsmc370-fa-ext.us.oracle.com/homePage/faces/AtkHomePageWelcome</Value>
+</Variable>
+
+<!-- #################Product Family - Financials - URL's Information############## -->
+
+'FIN/Payables 
+<Variable>
+             <Name>fin_ap_url</Name>  
+             <!--<Value>https://fuscdrmovm53-fin-ext.us.oracle.com/</Value> -->
+			 <Value>https://fuscdrmovm44-fin-ext.us.oracle.com/</Value> 
+</Variable>
+
+'FIN/Receivables
+<Variable>
+            <Name>fin_ar_url</Name>
+            <Value>http://indl72075.idc.oracle.com:9013/</Value>
+</Variable>      
+
+'FIN/Ledger
+<Variable>
+              <Name>fin_gl_url</Name>  
+              <Value>http://slcaf968.us.oracle.com:10613//</Value>
+</Variable>
+
+'FIN/Common
+<Variable>
+              <Name>fin_com_url</Name>
+              <Value>http://slcaf968.us.oracle.com:10613//</Value>
+</Variable>
+
+<!-- #################Other URL's Information##################### -->
+
+'FIN/PO
+<Variable>
+              <Name>fin_proc_url</Name>
+              <Value>http://slcaf968.us.oracle.com:10613</Value>
+</Variable>
+
+<Variable>
+              <Name>fin_ess_url</Name>
+              <Value>http://slcaf968.us.oracle.com:10613</Value>
+</Variable>
+
+'FIN/FSM
+<Variable>
+              <Name>fin_fsm_url</Name>
+              <Value>http://slcaf968.us.oracle.com:10613/</Value>
+</Variable>
+<Variable>
+    <Name>NETDISK_PATH</Name>
+    <Value>D:\FDI_Base</Value>
+</Variable>
+<Variable>
+    <Name>DB_HOST</Name>
+    <Value>slcao819.us.oracle.com</Value>
+  </Variable>
+  <Variable>
+    <Name>DB_PORT</Name>
+    <Value>1521</Value>
+  </Variable>
+  <Variable>
+    <Name>DB_SID</Name>
+    <Value>r10cfdb</Value>
+  </Variable>
+  <Variable>
+    <Name>DB_SERVICENAME</Name>
+    <Value>r10cfdb</Value>
+  </Variable>
+  <Variable>
+    <Name>DB_USER</Name>
+    <Value>fin_intf_user</Value>
+  </Variable>
+  <Variable>
+    <Name>DB_PASSWORD</Name>
+    <Value>finintf123</Value>
+  </Variable>
+
+<!-- ##############################End of File################################ -->
+
+</Environment>
